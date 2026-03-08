@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Establishing UK Operations: The Workstream Execution Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366;
+    --navy-mid: #1B3A5C;
+    --accent: #005B99;
+    --light-blue: #D5E8F0;
+    --neutral: #7F7F7F;
+    --neutral-light: #F5F5F5;
+    --white: #ffffff;
+    --border: #D0D8E0;
+    --text: #1A1A1A;
+    --text-light: #555555;
+    --row-alt: #F7FAFC;
+    --critical: #C0392B;
+    --critical-light: #FDECEA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11pt;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 56px 72px;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+
+  .doc-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .doc-header h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 26pt;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .doc-header .subtitle {
+    font-size: 10pt;
+    color: var(--neutral);
+    font-style: italic;
+  }
+
+  .doc-header .meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 14px;
+    font-size: 9pt;
+    color: var(--neutral);
+  }
+
+  .doc-header .meta span strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ── SCQA BLOCK ── */
+  .scqa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .scqa-item {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .scqa-item:nth-child(even) { border-right: none; }
+  .scqa-item:nth-child(3), .scqa-item:nth-child(4) { border-bottom: 1px solid var(--border); }
+  .scqa-item.answer { border-bottom: none; border-right: none; }
+
+  .scqa-item .scqa-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  .scqa-item.answer {
+    background: var(--navy);
+    grid-column: span 2;
+    border-bottom: none;
+    border-right: none;
+  }
+
+  .scqa-item.answer .scqa-label { color: var(--light-blue); }
+  .scqa-item.answer p { color: var(--white); font-weight: 400; }
+
+  .scqa-item.fee-summary {
+    background: var(--row-alt);
+    border-bottom: none;
+    border-right: none;
+  }
+
+  .scqa-item.fee-summary .scqa-label { color: var(--accent); }
+
+  .fee-summary-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .fee-line {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .fee-line .fee-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--neutral);
+  }
+
+  .fee-line .fee-amount {
+    font-family: 'EB Garamond', serif;
+    font-size: 18pt;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .fee-line .fee-note {
+    font-size: 8pt;
+    color: var(--neutral);
+  }
+
+  .scqa-item p {
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── COST SUMMARY BAR ── */
+  .cost-summary-bar {
+    background: var(--navy);
+    margin-top: 16px;
+    margin-bottom: 36px;
+  }
+
+  .cost-summary-inner {
+    padding: 20px 24px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--navy);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .section-header .exhibit-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--neutral);
+    white-space: nowrap;
+  }
+
+  .section-header h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── CRITICAL PATH BOX ── */
+  .critical-path {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--navy);
+    padding: 24px 28px;
+    margin-bottom: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .critical-path-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .cp-column h4 {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cp-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cp-step-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cp-box {
+    background: var(--neutral-light);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 9pt;
+    padding: 6px 12px;
+    font-weight: 400;
+  }
+
+  .cp-box.highlight {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .cp-box.critical {
+    background: var(--critical);
+    border-color: var(--critical);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .cp-arrow {
+    color: var(--neutral);
+    font-size: 11pt;
+    padding: 2px 0 2px 14px;
+    line-height: 1;
+  }
+
+  .cp-parallel {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cp-parallel h4 { margin-bottom: 8px; }
+
+  .cp-parallel-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cp-tag {
+    background: var(--light-blue);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    font-size: 8.5pt;
+    padding: 4px 10px;
+  }
+
+  /* ── PHASE TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 9.5pt;
+    table-layout: fixed;
+  }
+
+  /* Workstream tables share identical column widths */
+  .ws-table col.col-task     { width: 6%; }
+  .ws-table col.col-desc     { width: 20%; }
+  .ws-table col.col-start    { width: 7%; }
+  .ws-table col.col-complete { width: 10%; }
+  .ws-table col.col-duration { width: 9%; }
+  .ws-table col.col-cost     { width: 10%; }
+  .ws-table col.col-notes    { width: 38%; }
+
+  thead tr {
+    background: var(--navy);
+  }
+
+  thead th {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 8.5pt;
+    text-align: left;
+    padding: 10px 12px;
+    letter-spacing: 0.3px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  thead th:last-child { border-right: none; }
+
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:nth-child(odd) { background: var(--white); }
+
+  tbody tr.critical-row { background: var(--critical-light); }
+  tbody tr.critical-row td { color: var(--text); }
+
+  tbody td {
+    padding: 9px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    line-height: 1.45;
+  }
+
+  tbody td:last-child { border-right: none; }
+
+  .task-id {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 8.5pt;
+    white-space: nowrap;
+  }
+
+  .task-name {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .hard-constraint {
+    display: inline-block;
+    background: var(--critical);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 1px 6px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .cost-tag {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--navy);
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 1px 7px;
+    margin-bottom: 2px;
+  }
+
+  .note-text {
+    font-size: 9pt;
+    color: var(--text-light);
+    line-height: 1.45;
+  }
+
+  .workstream-label {
+    background: var(--navy-mid);
+    color: var(--white);
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    margin: 28px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .workstream-label .ws-complete {
+    font-weight: 400;
+    font-size: 8pt;
+    color: var(--light-blue);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-table thead th:first-child { width: 14%; }
+  .timeline-table thead th:nth-child(2) { width: 22%; }
+
+  .milestone-row { background: #EBF4FA !important; }
+  .milestone-row td { font-weight: 600; color: var(--navy) !important; }
+
+  .hard-date-row { background: #FFF3CD !important; }
+  .hard-date-row td { font-weight: 700; color: #7B4F00 !important; }
+
+  .launch-row { background: var(--navy) !important; }
+  .launch-row td { color: var(--white) !important; font-weight: 700; font-size: 10pt; }
+
+  /* ── COST TABLE ── */
+  .cost-total-row { background: var(--navy) !important; }
+  .cost-total-row td { color: var(--white) !important; font-weight: 700; }
+
+  /* ── STANDING NOTES ── */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .note-card {
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    background: var(--row-alt);
+  }
+
+  .note-card h4 {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .note-card p {
+    font-size: 9pt;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .note-card.critical-note {
+    border-left-color: var(--critical);
+    background: var(--critical-light);
+  }
+
+  .note-card.critical-note h4 { color: var(--critical); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 56px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--neutral);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { font-size: 9pt; }
+    .page { padding: 24px 32px; max-width: 100%; }
+    .section-header { margin-top: 24px; }
+    .workstream-label { margin-top: 18px; }
+  }
+
+  @media (max-width: 768px) {
+    .page { padding: 24px 20px; }
+    .scqa { grid-template-columns: 1fr; }
+    .scqa-item.answer { grid-column: span 1; }
+    .critical-path-grid { grid-template-columns: 1fr; }
+    .notes-grid { grid-template-columns: 1fr; }
+    table { font-size: 8.5pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label">Avio MedTech Consultants — UK Expansion</div>
+    <h1>Establishing UK Operations:<br>The Workstream Execution Plan</h1>
+    <div class="subtitle">Version 7 &nbsp;·&nbsp; Configured for Avio MedTech Consultants &nbsp;·&nbsp; Phase 0 through Phase 2</div>
+    <div class="meta">
+      <span><strong>First Payroll:</strong> October 1, 2026</span>
+      <span><strong>Arrival Window:</strong> September 1 – October 15, 2026</span>
+      <span><strong>Phase 0 Start:</strong> April 21, 2026</span>
+      <span><strong>Status:</strong> Pre-Execution</span>
+    </div>
+  </div>
+
+  <!-- SCQA -->
+  <div class="scqa">
+    <div class="scqa-item">
+      <div class="scqa-label">Situation</div>
+      <p>To establish a UK subsidiary in Edinburgh, with a target office-open window of September 1 – October 15, 2026, the UK Ltd must exist, be PAYE-registered, and have a signed employment contract before the Managing Director's permanent arrival.</p>
+    </div>
+    <div class="scqa-item">
+      <div class="scqa-label">Complication</div>
+      <p>Formation, HMRC registration, employment structure, and payroll are sequential dependencies with hard timing constraints in both directions. PAYE registration cannot occur more than 2 months before first payroll.</p>
+    </div>
+    <div class="scqa-item">
+      <div class="scqa-label">Question</div>
+      <p>What is the correct task sequence, ownership, timing, and cost to have a fully operational UK Ltd — with live PAYE and a filed Certificate of Coverage application — by October 1, 2026?</p>
+    </div>
+    <div class="scqa-item">
+      <div class="scqa-label">Answer — So What</div>
+      <p>Engage the Edinburgh accountancy firm on April 21 as the first action. The firm serves as registered office, payroll processor, HMRC correspondent, and CoC filer — single point of contact eliminating mail forwarding risk and provider fragmentation.</p>
+    </div>
+  </div>
+
+  <!-- COST SUMMARY BAR -->
+  <div class="cost-summary-bar">
+    <div class="cost-summary-inner">
+      <div class="scqa-label" style="color: var(--light-blue); margin-bottom: 12px;">Cost Summary</div>
+      <div style="display: flex; gap: 0; align-items: stretch;">
+        <div class="fee-line" style="flex: 1; padding-right: 40px; border-right: 1px solid rgba(255,255,255,0.2);">
+          <span class="fee-label" style="color: var(--light-blue);">Pre-arrival setup fees</span>
+          <span class="fee-amount" style="color: var(--white);">£4,000 – £5,500</span>
+          <span class="fee-note" style="color: var(--white); font-size: 10pt;">$5,200 – $7,100 USD</span>
+          <span class="fee-note" style="color: rgba(255,255,255,0.6);">Incorporation through first payroll (incl. firm fees Apr–Sep)</span>
+        </div>
+        <div class="fee-line" style="flex: 1; padding-left: 40px;">
+          <span class="fee-label" style="color: var(--light-blue);">Monthly recurring fees</span>
+          <span class="fee-amount" style="color: var(--white);">£250 – £400 <span style="font-size:11pt;font-weight:400">/mo</span></span>
+          <span class="fee-note" style="color: var(--white); font-size: 10pt;">$325 – $520 USD</span>
+          <span class="fee-note" style="color: rgba(255,255,255,0.6);">Accountancy firm — payroll, compliance, CoC, accounts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXHIBIT 1: CRITICAL PATH -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 1</span>
+    <h2>Three Dependencies Govern the Timeline</h2>
+  </div>
+
+  <div class="critical-path">
+    <div class="critical-path-grid">
+      <div class="cp-column">
+        <h4>Critical Path — Sequential</h4>
+        <div class="cp-chain">
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">F1. Engage Edinburgh accountancy firm</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">A1. Companies House incorporation</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">A2. Certificate of Incorporation</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">A3. Government Gateway — firm handles</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">B1. Corporation Tax registered</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box critical">B2. PAYE registered — August 1 (hard date)</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">B3. PAYE reference at firm (~Aug 21)</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">D4. Firm configures payroll</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">D5. Dry-run RTI confirmed</div></div></div>
+          <div class="cp-arrow">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box highlight">October 1 — Live PAYE · CA8421 filed</div></div></div>
+        </div>
+      </div>
+      <div class="cp-column">
+        <h4>Key Constraints</h4>
+        <div class="cp-chain">
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box critical">PAYE: cannot register &gt; 2 months before first payroll. August 1 earliest for October 1 payroll.</div></div></div>
+          <div class="cp-arrow" style="opacity:0">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">PAYE reference: arrives by post at firm. 15–20 working days. Firm acts on receipt — no forwarding delay.</div></div></div>
+          <div class="cp-arrow" style="opacity:0">↓</div>
+          <div class="cp-step"><div class="cp-step-content"><div class="cp-box">CoC certificate: HMRC NICO issues 4–8 weeks after filing. FICA withholding continues until issued certificate received. Application alone is not sufficient for US payroll processor.</div></div></div>
+        </div>
+        <div class="cp-parallel">
+          <h4>Parallel Workstreams</h4>
+          <div class="cp-parallel-items">
+            <div class="cp-tag">D1–D3 Employment contract (complete before D4)</div>
+            <div class="cp-tag">E Insurance (bind before first client meeting)</div>
+            <div class="cp-tag">C Banking — Tide pre-July; Starling on York entry</div>
+            <div class="cp-tag">P2 CoC prep — begins Sep 18</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXHIBIT 2: PHASES -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 2</span>
+    <h2>Phase Structure</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:10%">Phase</th>
+        <th style="width:28%">Name</th>
+        <th style="width:28%">Window</th>
+        <th>Base</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="task-id">0A</td><td>Pre-Arrival Formation</td><td>April 21 – June 30, 2026</td><td class="note-text">US-based</td></tr>
+      <tr class="milestone-row"><td class="task-id">0B</td><td>Residency Entry — York</td><td>~July 1–5, 2026</td><td class="note-text">York, England (Hannah's parents' home)</td></tr>
+      <tr><td class="task-id">0C</td><td>Pre-Arrival Completion</td><td>July 5 – September 30, 2026</td><td class="note-text">US-based</td></tr>
+      <tr class="hard-date-row"><td class="task-id">1</td><td>Day-One Activation</td><td>October 1, 2026</td><td>Edinburgh — first UK PAYE payroll</td></tr>
+      <tr><td class="task-id">2</td><td>Certificate of Coverage</td><td>October 1 onward</td><td class="note-text">Filed Oct 1; certificate received 4–8 weeks later</td></tr>
+      <tr><td class="task-id">3</td><td>Steady-State Operations</td><td>Ongoing</td><td class="note-text">Dual-role, dual-payroll</td></tr>
+    </tbody>
+  </table>
+
+  <!-- EXHIBIT 3: TASK SCHEDULE -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 3</span>
+    <h2>Full Task Schedule — Phase 0 through Phase 2</h2>
+  </div>
+
+  <div class="workstream-label">
+    Workstream F &nbsp;·&nbsp; Foundational &nbsp;·&nbsp; Accountancy Firm — Execute First
+    <span class="ws-complete">Complete: April 28</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="critical-row">
+        <td class="task-id">F1</td>
+        <td><span class="task-name">Select and engage Edinburgh accountancy firm</span></td>
+        <td>Apr 21</td>
+        <td>Apr 27</td>
+        <td>1 week</td>
+        <td><span class="cost-tag">£250–£400/mo</span></td>
+        <td class="note-text"><span class="hard-constraint">First Action</span> Before any other task. Selection criteria: split US/UK payroll experience; Certificate of Coverage filing history; registered office service; ACSP status (Companies House 2024 requirement). Confirm all four before engaging. Firm handles incorporation, HMRC, payroll, annual accounts, and CoC — single point of contact for all year-one compliance.</td>
+      </tr>
+      <tr>
+        <td class="task-id">F2</td>
+        <td><span class="task-name">Confirm registered office at firm's address</span></td>
+        <td>Apr 27</td>
+        <td>Apr 28</td>
+        <td>1 day</td>
+        <td><span class="cost-tag">Bundled or £100–£200/yr</span></td>
+        <td class="note-text">Firm's Edinburgh address replaces Regus entirely. HMRC correspondence — Government Gateway activation code and PAYE reference — arrives directly at firm. Eliminates mail forwarding lag on both critical-path items. Confirm ACSP registration.</td>
+      </tr>
+      <tr>
+        <td class="task-id">F3</td>
+        <td><span class="task-name">Brief firm on split payroll structure</span></td>
+        <td>Apr 27</td>
+        <td>Apr 28</td>
+        <td>1 day</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Provide: US parent structure, intended compensation split (US/UK), October 1 payroll target, Certificate of Coverage intent. Firm must understand the full picture before incorporation — not after.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM A -->
+  <div class="workstream-label">
+    Workstream A &nbsp;·&nbsp; Corporate Formation
+    <span class="ws-complete">Complete: May 26</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">A1</td>
+        <td><span class="task-name">File incorporation with Companies House</span></td>
+        <td>Apr 28</td>
+        <td>Apr 30</td>
+        <td>24–48 hrs</td>
+        <td><span class="cost-tag">£100</span></td>
+        <td class="note-text">Firm files or supervises. Registered office: firm's Edinburgh address. Appoint Kevin as director. 100% US parent-owned. Standard Model Articles sufficient.</td>
+      </tr>
+      <tr>
+        <td class="task-id">A2</td>
+        <td><span class="task-name">Certificate of Incorporation received</span></td>
+        <td>Apr 30</td>
+        <td>May 1</td>
+        <td>24–48 hrs</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">CRN issued on approval. Digital certificate. Firm holds.</td>
+      </tr>
+      <tr>
+        <td class="task-id">A3</td>
+        <td><span class="task-name">Government Gateway set up for UK Ltd</span></td>
+        <td>May 1</td>
+        <td>May 5</td>
+        <td>3–5 days</td>
+        <td><span class="cost-tag">Free</span></td>
+        <td class="note-text">Firm sets up on UK Ltd's behalf. Activation code arrives at firm's address — no forwarding delay. Gates all HMRC registration. Required before B1 and B2.</td>
+      </tr>
+      <tr>
+        <td class="task-id">A4</td>
+        <td><span class="task-name">Draft intercompany services agreement</span></td>
+        <td>May 5</td>
+        <td>May 26</td>
+        <td>3 weeks</td>
+        <td><span class="cost-tag">£750–£1,500</span></td>
+        <td class="note-text">IP stays with US parent. UK Ltd provides European operations services. Edinburgh solicitor (engaged in D1) handles UK Ltd side. Firm reviews for consistency with payroll and tax structure.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM B -->
+  <div class="workstream-label">
+    Workstream B &nbsp;·&nbsp; HMRC Registration
+    <span class="ws-complete">Critical milestone: PAYE reference ~August 21</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">B1</td>
+        <td><span class="task-name">Register for Corporation Tax</span></td>
+        <td>May 5</td>
+        <td>May 7</td>
+        <td>1–2 days</td>
+        <td><span class="cost-tag">Free</span></td>
+        <td class="note-text">Firm handles via Government Gateway immediately after A3. Register within 3 months of incorporation.</td>
+      </tr>
+      <tr class="critical-row">
+        <td class="task-id">B2</td>
+        <td><span class="task-name">Register for PAYE and Employer NIC</span></td>
+        <td><strong>Aug 1</strong></td>
+        <td><strong>Aug 1</strong></td>
+        <td>Same day</td>
+        <td><span class="cost-tag">Free</span></td>
+        <td class="note-text"><span class="hard-constraint">Hard Constraint</span> Cannot register more than 2 months before first payroll (Oct 1). Firm registers on August 1 — not before, not after. This date is in the brief from F3. Kevin verifies firm has calendared it.</td>
+      </tr>
+      <tr>
+        <td class="task-id">B3</td>
+        <td><span class="task-name">PAYE reference received at firm</span></td>
+        <td>Aug 1</td>
+        <td>~Aug 21</td>
+        <td>15–20 working days</td>
+        <td><span class="cost-tag">Free</span></td>
+        <td class="note-text">Employer PAYE Reference and Accounts Office Reference arrive by post at firm's address. Firm acts immediately on receipt. If not received by Aug 26, firm calls HMRC Employer Helpline (0300 200 3211). Kevin does not manage this — firm owns it.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM C -->
+  <div class="workstream-label">
+    Workstream C &nbsp;·&nbsp; Banking
+    <span class="ws-complete">Not on critical path — does not gate payroll</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">C1</td>
+        <td><span class="task-name">Open Tide or Revolut Business</span></td>
+        <td>May 1</td>
+        <td>May 15</td>
+        <td>1–2 weeks</td>
+        <td><span class="cost-tag">£0–£15/mo</span></td>
+        <td class="note-text">Non-resident directors accepted. Requires Certificate of Incorporation only. Operational account for pre-July period. Sufficient for early HMRC payments or operational costs.</td>
+      </tr>
+      <tr class="milestone-row">
+        <td class="task-id">C2</td>
+        <td><span class="task-name">York residency entry</span></td>
+        <td>~Jul 1</td>
+        <td>~Jul 5</td>
+        <td>3–5 days</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Enter UK on spouse visa. Stay at Hannah's parents' home in York. Establishes UK residency date and permanent, verifiable director residential address. York address is stable, documentable, and cross-references cleanly on KYC checks. York is director residential address (private); firm's Edinburgh address remains registered office.</td>
+      </tr>
+      <tr>
+        <td class="task-id">C3</td>
+        <td><span class="task-name">Open Starling Bank</span></td>
+        <td>Jul 1</td>
+        <td>Jul 10</td>
+        <td>3–7 days</td>
+        <td><span class="cost-tag">£0/mo</span></td>
+        <td class="note-text">Apply on day of York entry using York address. Starling requires UK-resident directors — satisfied immediately on entry. FSCS protected, no monthly fees, strong Xero integration. Primary UK operating account from approval onward for invoicing and day-to-day operations.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM D -->
+  <div class="workstream-label">
+    Workstream D &nbsp;·&nbsp; Employment Structure
+    <span class="ws-complete">Complete: September 18</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">D1</td>
+        <td><span class="task-name">Engage Edinburgh employment solicitor</span></td>
+        <td>May 26</td>
+        <td>Jun 2</td>
+        <td>1 week</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">ELP Arbuthnott McClanachan (0131 554 8649) or Harper Macleod. Request fixed-fee quote for bespoke executive contract. Same solicitor handles UK Ltd side of intercompany agreement. Introduce solicitor to accountancy firm — they will coordinate.</td>
+      </tr>
+      <tr>
+        <td class="task-id">D2</td>
+        <td><span class="task-name">Draft employment contract</span></td>
+        <td>Jun 2</td>
+        <td>Jun 23</td>
+        <td>3 weeks</td>
+        <td><span class="cost-tag">£750–£2,000</span></td>
+        <td class="note-text">Employer: UK Ltd. Role: Managing Director / Head of European Operations. GBP-denominated. No sponsorship language. Explicitly state UK as primary employment location — required for CoC basis. Firm reviews final draft for payroll consistency before execution.</td>
+      </tr>
+      <tr>
+        <td class="task-id">D3</td>
+        <td><span class="task-name">Execute employment contract</span></td>
+        <td>Jun 23</td>
+        <td>Jun 23</td>
+        <td>1 day</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Kevin signs as director (employer) and employee. Dual capacity documented explicitly in execution block. Firm receives executed copy.</td>
+      </tr>
+      <tr>
+        <td class="task-id">D4</td>
+        <td><span class="task-name">Firm configures payroll</span></td>
+        <td>Aug 21</td>
+        <td>Sep 4</td>
+        <td>2 weeks</td>
+        <td><span class="cost-tag">Included in fee</span></td>
+        <td class="note-text">Firm configures using PAYE reference (B3) and employment contract (D3). Confirm US bank account funding mechanics — firm should have handled cross-border payroll funding before. York address used for director onboarding where residential address required.</td>
+      </tr>
+      <tr>
+        <td class="task-id">D5</td>
+        <td><span class="task-name">Dry-run payroll cycle</span></td>
+        <td>Sep 4</td>
+        <td>Sep 18</td>
+        <td>2 weeks</td>
+        <td><span class="cost-tag">Included in fee</span></td>
+        <td class="note-text">Firm confirms RTI Full Payment Submission received in HMRC Government Gateway. Kevin verifies independently in Gateway as a secondary check. Final gate before live payroll. RTI is HMRC's real-time reporting system — every payroll run must submit an FPS to HMRC on or before payday. Failure triggers automatic penalties.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM E -->
+  <div class="workstream-label">
+    Workstream E &nbsp;·&nbsp; Insurance
+    <span class="ws-complete">Complete: June 30</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">E1</td>
+        <td><span class="task-name">Source Professional Indemnity Insurance quotes</span></td>
+        <td>Jun 2</td>
+        <td>Jun 23</td>
+        <td>3 weeks</td>
+        <td><span class="cost-tag">£1,500–£3,500/yr</span></td>
+        <td class="note-text">Hiscox, AXA, Chubb. MedTech consulting is a specialist category — expect higher end of range. Confirm backdating to formation date with broker. Ask firm if they have broker relationships.</td>
+      </tr>
+      <tr>
+        <td class="task-id">E2</td>
+        <td><span class="task-name">Source Cyber Liability Insurance quotes</span></td>
+        <td>Jun 2</td>
+        <td>Jun 23</td>
+        <td>3 weeks</td>
+        <td><span class="cost-tag">£500–£1,500/yr</span></td>
+        <td class="note-text">Concurrent with E1. Bundle with PII broker for discount. Increasingly required by Scottish institutional clients as standard.</td>
+      </tr>
+      <tr>
+        <td class="task-id">E3</td>
+        <td><span class="task-name">Bind policies</span></td>
+        <td>Jun 23</td>
+        <td>Jun 30</td>
+        <td>1 week</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Bind before first UK client meeting. Certificates issued before arrival.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- WORKSTREAM P2 -->
+  <div class="workstream-label">
+    Workstream P2 &nbsp;·&nbsp; Certificate of Coverage
+    <span class="ws-complete">File: October 1 · Certificate receipt: 4–8 weeks post-filing</span>
+  </div>
+  <table class="ws-table">
+    <colgroup>
+      <col class="col-task"><col class="col-desc"><col class="col-start">
+      <col class="col-complete"><col class="col-duration"><col class="col-cost"><col class="col-notes">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Task</th><th>Description</th><th>Start</th><th>Complete</th>
+        <th>Duration</th><th>Cost</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="task-id">P2-1</td>
+        <td><span class="task-name">Prepare CoC application package</span></td>
+        <td>Sep 18</td>
+        <td>Sep 30</td>
+        <td>2 weeks</td>
+        <td><span class="cost-tag">Included in fee</span></td>
+        <td class="note-text">Form CA8421. Firm assembles: employment contract, payroll records, UK Ltd structure, US parent relationship summary. Basis: Kevin is UK-domiciled, employed by UK Ltd, subject to UK NIC as primary social security obligation. CoC purpose: exempt the US-paid officer compensation from FICA. NIC applies only to UK Ltd earnings; US officer earnings carry no NIC obligation independently.</td>
+      </tr>
+      <tr class="critical-row">
+        <td class="task-id">P2-2</td>
+        <td><span class="task-name">File CA8421 with HMRC NICO</span></td>
+        <td><strong>Oct 1</strong></td>
+        <td><strong>Oct 1</strong></td>
+        <td>Same day as first payroll</td>
+        <td><span class="cost-tag">Included in fee</span></td>
+        <td class="note-text"><span class="hard-constraint">File Immediately</span> File on first payroll date. Do not wait. Clean facts from day one support the application. Notify US payroll processor same day that application has been filed and certificate is pending. FICA withholding on US officer salary continues until issued certificate received — this is correct and expected.</td>
+      </tr>
+      <tr>
+        <td class="task-id">P2-3</td>
+        <td><span class="task-name">Notify US payroll processor of pending CoC</span></td>
+        <td>Oct 1</td>
+        <td>Oct 1</td>
+        <td>Same day</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Firm sends application confirmation to US payroll processor. Processor briefed: certificate in process; FICA withholding continues; adjust on receipt of issued certificate. Do not instruct processor to stop FICA on application alone — no legal basis without the issued certificate.</td>
+      </tr>
+      <tr>
+        <td class="task-id">P2-4</td>
+        <td><span class="task-name">Receive issued CoC certificate from HMRC NICO</span></td>
+        <td>Oct 1</td>
+        <td>4–8 weeks post-filing</td>
+        <td>—</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">HMRC issues the formal Certificate of Coverage. Firm receives at registered office. This — not the application — is what authorizes FICA exemption. Firm follows up with HMRC NICO at week 6 if not received.</td>
+      </tr>
+      <tr>
+        <td class="task-id">P2-5</td>
+        <td><span class="task-name">Deliver certificate to US payroll processor</span></td>
+        <td>On receipt</td>
+        <td>Within 2 days of receipt</td>
+        <td>2 days</td>
+        <td><span class="cost-tag">—</span></td>
+        <td class="note-text">Firm sends issued certificate to US payroll processor immediately on receipt. Processor stops FICA withholding on US officer salary from next payroll cycle. Over-withheld FICA from October through certificate receipt is reconciled at year-end or via amended filing. Kevin confirms reconciliation with US tax adviser.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EXHIBIT 4: MASTER TIMELINE -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 4</span>
+    <h2>Master Timeline Summary</h2>
+  </div>
+
+  <table class="timeline-table">
+    <thead>
+      <tr>
+        <th>Week</th>
+        <th>Dates</th>
+        <th>Key Milestones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="critical-row"><td class="task-id">Wk 0</td><td><strong>Apr 21–27</strong></td><td><strong>Engage accountancy firm — first action</strong></td></tr>
+      <tr><td class="task-id">Wk 1</td><td>Apr 28 – May 1</td><td>Brief firm; incorporate; Certificate of Incorporation received</td></tr>
+      <tr><td class="task-id">Wk 2–3</td><td>May 2 – May 15</td><td>Government Gateway live; Corp Tax registered; open Tide/Revolut</td></tr>
+      <tr><td class="task-id">Wk 4–7</td><td>May 16 – Jun 13</td><td>Intercompany agreement; engage solicitor; draft employment contract</td></tr>
+      <tr><td class="task-id">Wk 8–10</td><td>Jun 14 – Jul 2</td><td>Execute employment contract; source and bind insurance</td></tr>
+      <tr class="milestone-row"><td class="task-id">Wk 10</td><td><strong>~Jul 1–5</strong></td><td><strong>York entry — UK residency established; Starling Bank application submitted</strong></td></tr>
+      <tr><td class="task-id">Wk 11</td><td>Jul 6 – Jul 12</td><td>Starling Bank approved and operational</td></tr>
+      <tr><td class="task-id">Wk 12–15</td><td>Jul 13 – Aug 1</td><td>Buffer — confirm all pre-PAYE workstreams closed</td></tr>
+      <tr class="hard-date-row"><td class="task-id">Wk 15</td><td><strong>Aug 1</strong></td><td><strong>Firm registers for PAYE — hard date, cannot be moved</strong></td></tr>
+      <tr><td class="task-id">Wk 16–18</td><td>Aug 2 – Aug 21</td><td>PAYE reference arrives at firm (~Aug 21)</td></tr>
+      <tr><td class="task-id">Wk 19–20</td><td>Aug 22 – Sep 4</td><td>Firm configures payroll; US bank account funding confirmed with firm</td></tr>
+      <tr><td class="task-id">Wk 21–22</td><td>Sep 5 – Sep 18</td><td>Dry-run payroll; RTI Full Payment Submission confirmed in Government Gateway</td></tr>
+      <tr><td class="task-id">Wk 21–23</td><td>Sep 18 – Sep 30</td><td>Buffer / contingency; CoC application package finalised by firm</td></tr>
+      <tr class="launch-row"><td>Oct 1</td><td><strong>October 1, 2026</strong></td><td><strong>Live payroll — UK PAYE activated &nbsp;·&nbsp; CA8421 filed same day &nbsp;·&nbsp; US payroll processor notified</strong></td></tr>
+    </tbody>
+  </table>
+
+  <!-- EXHIBIT 5: COSTS -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 5</span>
+    <h2>Cost Summary</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:32%">Item</th>
+        <th style="width:22%">Cost</th>
+        <th style="width:14%">Frequency</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Edinburgh accountancy firm</strong></td><td>£250–£400/mo (£3,000–£4,800/yr)</td><td>Monthly</td><td class="note-text">Payroll, PAYE compliance, annual accounts, corp tax, CoC filing, ad hoc advice. Registered office typically bundled or £100–£200/yr add-on. Replaces Regus, global payroll platform, and standalone registered office.</td></tr>
+      <tr><td>Companies House + formation</td><td>£100–£200</td><td>One-time</td><td class="note-text">Firm supervises or files directly.</td></tr>
+      <tr><td>Government Gateway</td><td>Free</td><td>One-time</td><td class="note-text">Firm handles.</td></tr>
+      <tr><td>Intercompany services agreement</td><td>£750–£1,500</td><td>One-time</td><td class="note-text">US + UK counsel. Scope carefully.</td></tr>
+      <tr><td>Employment contract (solicitor)</td><td>£750–£2,000</td><td>One-time</td><td class="note-text">Edinburgh fixed-fee available; request upfront.</td></tr>
+      <tr><td>Professional Indemnity Insurance</td><td>£1,500–£3,500/yr</td><td>Annual</td><td class="note-text">MedTech consulting specialist category.</td></tr>
+      <tr><td>Cyber Liability Insurance</td><td>£500–£1,500/yr</td><td>Annual</td><td class="note-text">Bundle with PII broker.</td></tr>
+      <tr class="cost-total-row"><td><strong>One-time setup total</strong></td><td><strong>£4,000–£5,500</strong></td><td>—</td><td>Incorporation through first payroll, including accountancy firm fees April–September (4.5 months at £250–£400/mo)</td></tr>
+      <tr class="cost-total-row"><td><strong>Annual recurring total</strong></td><td><strong>£5,000–£9,800/yr</strong></td><td>Annual</td><td>Firm fee replaces Regus (£700–£1,700) + global payroll platform (£600–£1,800). Net recurring cost lower despite higher firm fee.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- EXHIBIT 6: STANDING NOTES -->
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 6</span>
+    <h2>Standing Notes</h2>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note-card critical-note">
+      <h4>1 &nbsp;·&nbsp; Engage the firm first — April 21</h4>
+      <p>The firm is the registered office, payroll processor, HMRC correspondent, and CoC filer. Engaging them first compresses the schedule — they file incorporation the same week. Everything else flows through them. Do not incorporate before the firm is engaged.</p>
+    </div>
+    <div class="note-card critical-note">
+      <h4>2 &nbsp;·&nbsp; August 1 PAYE — hard date</h4>
+      <p>The 2-month window is defined by the October 1 payroll date. Cannot register before August 1. Delegate execution to the firm; do not delegate awareness. Confirm in July that the firm has it calendared.</p>
+    </div>
+    <div class="note-card">
+      <h4>3 &nbsp;·&nbsp; Brief the firm at engagement, not later</h4>
+      <p>This is not a standard single-entity UK payroll. The firm needs to understand the US parent relationship, split compensation structure, and CoC intent from day one. Provide the payroll comparison briefing and execution plan documents at the first meeting.</p>
+    </div>
+    <div class="note-card">
+      <h4>4 &nbsp;·&nbsp; York address — permanent director address</h4>
+      <p>York is Kevin's director residential address (private, not on public register). Firm's Edinburgh address is the registered office for all company correspondence. Both remain in use for their respective purposes. Apply for Starling on the day of York entry.</p>
+    </div>
+    <div class="note-card">
+      <h4>5 &nbsp;·&nbsp; CoC — file October 1, expect gap</h4>
+      <p>CA8421 filed on first payroll date. FICA withholding on US officer salary continues until issued certificate received (4–8 weeks). This is correct treatment — application alone provides no legal basis to stop withholding. Over-withheld FICA is recoverable at year-end.</p>
+    </div>
+    <div class="note-card">
+      <h4>6 &nbsp;·&nbsp; Six weeks of buffer — do not compress</h4>
+      <p>Dry-run completes September 18. First live payroll October 1. The buffer absorbs payroll configuration delays, HMRC correspondence timing, and FX settlement questions with the firm. It exists for a reason.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>KSC Advisors &nbsp;·&nbsp; Scotland Office Plan</span>
+    <span>Version 7 &nbsp;·&nbsp; Configured for Avio MedTech Consultants &nbsp;·&nbsp; March 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
