@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scotland Life Sciences Addressable Market</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366;
+    --navy-mid: #1B3A5C;
+    --accent: #005B99;
+    --light-blue: #D5E8F0;
+    --neutral: #7F7F7F;
+    --neutral-light: #F5F5F5;
+    --white: #ffffff;
+    --border: #D0D8E0;
+    --text: #1A1A1A;
+    --text-light: #555555;
+    --row-alt: #F7FAFC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11pt;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 56px 72px;
+  }
+
+  .doc-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+
+  .doc-header .label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .doc-header h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 26pt;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .doc-header .subtitle {
+    font-size: 10pt;
+    color: var(--neutral);
+    font-style: italic;
+  }
+
+  .governing-thought {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    font-size: 10.5pt;
+    color: var(--text);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .section-header {
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--navy);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .section-header .exhibit-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--neutral);
+    white-space: nowrap;
+  }
+
+  .section-header h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  p { margin-bottom: 14px; line-height: 1.55; }
+
+  .key-phrase { font-weight: 700; color: var(--text); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 6px;
+    font-size: 9.5pt;
+  }
+
+  thead tr { background: var(--navy); }
+
+  thead th {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 8.5pt;
+    text-align: left;
+    padding: 10px 12px;
+    letter-spacing: 0.3px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  thead th:last-child { border-right: none; }
+  thead th.right { text-align: right; }
+
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:nth-child(odd) { background: var(--white); }
+
+  tbody td {
+    padding: 9px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.45;
+  }
+
+  td.dim-label { font-weight: 700; color: var(--navy); }
+  td.right { text-align: right; }
+  td.highlight { font-weight: 700; color: var(--navy); }
+
+  .source-line {
+    font-size: 7.5pt;
+    font-style: italic;
+    color: var(--neutral);
+    margin-bottom: 28px;
+  }
+
+  .note-block {
+    border-left: 3px solid var(--border);
+    padding: 12px 16px;
+    margin: 8px 0 24px;
+    background: var(--row-alt);
+    font-size: 9.5pt;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  h3.sub {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .doc-footer {
+    margin-top: 56px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--neutral);
+  }
+
+  @media print {
+    body { font-size: 9pt; }
+    .page { padding: 24px 32px; max-width: 100%; }
+    .section-header { margin-top: 24px; }
+  }
+
+  @media (max-width: 768px) {
+    .page { padding: 24px 20px; }
+    table { font-size: 8.5pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <div class="label">KSC Advisors</div>
+    <h1>Scotland Life Sciences<br>Addressable Market</h1>
+    <div class="subtitle">Mapping the firm&rsquo;s existing practice to the 248-venture Scottish pipeline</div>
+  </div>
+
+  <div class="governing-thought">
+    Glasgow is the immediate beachhead. It accounts for 50% of Scotland&rsquo;s MedTech companies and maps directly to the firm&rsquo;s device and SaMD regulatory practice. Edinburgh, Dundee, and Aberdeen extend the pipeline as combination product demand matures&mdash;but Glasgow is where early wins are.
+  </div>
+
+  <div class="section-header">
+    <h2>Scotland is the UK&rsquo;s most active spinout region outside the Golden Triangle&mdash;and the pipeline is funded</h2>
+  </div>
+
+  <p>
+    Scotland has 248 active life sciences ventures as of Q2 2025, making it <span class="key-phrase">the most prolific spinout region in the UK outside London and the Southeast</span>. Edinburgh ranks second nationally for new spinout firms (86), behind only Oxford (110). Glasgow and Strathclyde both rank in the UK top 20.
+  </p>
+
+  <p>
+    Three Scottish universities are among the top 20 UK academic institutions for spinout activity. The University of Edinburgh alone produced 71 spinout companies between 2011 and early 2025. <span class="key-phrase">Equity investment in UK university spinouts increased 38% in 2024 to &pound;2.6 billion.</span> Life sciences and pharmaceuticals are the strongest sectors for new spinout creation nationally.
+  </p>
+
+  <p>
+    Edinburgh ranks first in the UK outside the Golden Triangle for deep tech VC investment. Glasgow ranks third. This is an accessible, low-CAC pipeline with deal flow and measurable capital behind it.
+  </p>
+
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 1</span>
+    <h2>The 248 ventures break into five categories&mdash;with device, SaMD, and combination products as the addressable core</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:50%;">Category</th>
+        <th class="right" style="width:25%;">Estimated share</th>
+        <th class="right" style="width:25%;">Approximate count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dim-label">Digital health / SaMD / AI</td>
+        <td class="right">~35%</td>
+        <td class="right">~87</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Drug discovery / therapeutics (drug-only)</td>
+        <td class="right">~30%</td>
+        <td class="right">~74</td>
+      </tr>
+      <tr>
+        <td class="dim-label">MedTech / device</td>
+        <td class="right">~20%</td>
+        <td class="right">~50</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Diagnostics / IVD</td>
+        <td class="right">~10%</td>
+        <td class="right">~25</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Combination product&mdash;confirmed or likely</td>
+        <td class="right">~5%</td>
+        <td class="right">~12</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="source-line">Source: KSC Advisors analysis of Beauhurst, university spinout data, and sector reports</p>
+
+  <div class="note-block">
+    The combination product category is likely understated. Many companies currently classified as drug-only or device-only will require combination product regulatory navigation as they move from discovery toward clinical development and commercial delivery. The forward-looking pipeline&mdash;companies that will need this capability within 2&ndash;5 years&mdash;is materially larger.
+  </div>
+
+  <p>
+    <span class="key-phrase">The immediately addressable market is ~149 ventures</span>&mdash;the digital health/SaMD, MedTech/device, and confirmed combination product categories. The diagnostics/IVD segment (~25) is partially addressable. Drug-only ventures (~74) become addressable as they mature into combination products requiring device-interface regulatory strategy.
+  </p>
+
+  <p>
+    No identified competitor occupies this position. Glasgow-based device boutiques (e.g., MD Compliance) are regulatory execution specialists&mdash;they are not positioned to deliver integrated strategic advisory. Engineering consultancies in the Cambridge corridor (Team Consulting, Sagentia) design and build products but do not integrate regulatory strategy with capital formation and investor narrative. <span class="key-phrase">Pharma regulatory firms (PharmaLex, Arriello) hold deep drug-side expertise but no above-the-line advisory capability.</span> They are complementary partners, not competitors.
+  </p>
+
+  <div class="section-header">
+    <span class="exhibit-label">Exhibit 2</span>
+    <h2>Glasgow is the primary beachhead&mdash;Edinburgh, Dundee, and Aberdeen extend the corridor</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%;">Geography</th>
+        <th style="width:28%;">Category weighting</th>
+        <th style="width:30%;">Key institutions</th>
+        <th style="width:28%;">Firm relevance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dim-label">Glasgow</td>
+        <td>MedTech, diagnostics, precision medicine therapeutics. 50% of Scotland&rsquo;s MedTech companies.</td>
+        <td>Strathclyde Institute of Medical Devices; Precision Medicine Scotland; Clinical Innovation Zone at QEUH</td>
+        <td class="highlight">Primary beachhead. Most directly addressable for existing device and SaMD practice.</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Edinburgh</td>
+        <td>Drug and digital dominant. 65% data/digital/AI; 35% drug/drug-adjacent. Pure device is the smallest category.</td>
+        <td>BioQuarter; Edinburgh Innovations; Usher Building</td>
+        <td>SaMD and digital health addressable today. Drug-device convergence on 2&ndash;5 year horizon.</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Dundee</td>
+        <td>Drug discovery dominant. Small molecule focus.</td>
+        <td>University of Dundee; Exscientia (origin); Ten Bio; Outrun Therapeutics</td>
+        <td>Monitor. Combination product potential emerges as drug candidates reach delivery mechanism design stage.</td>
+      </tr>
+      <tr>
+        <td class="dim-label">Aberdeen</td>
+        <td>Drug and biotech. Neurodegenerative and infectious disease focus. Smaller MedTech presence.</td>
+        <td>ONE BioHub at Foresterhill; TauRx Pharmaceuticals; NovaBiotics</td>
+        <td>Monitor selectively. Limited near-term device/SaMD pipeline.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="source-line">Source: KSC Advisors analysis of university spinout databases, sector reports, and institutional publications</p>
+
+  <h3 class="sub">Glasgow client signals: NebuFlow and ScreenIn3D</h3>
+
+  <p>
+    <strong style="color:var(--navy);">NebuFlow</strong> (Glasgow, late-seed-to-early-venture) has &pound;10M+ in combined grants and equity, with next-generation nebulizers for respiratory drug delivery&mdash;a drug-delivery device at the drug-device interface. <span class="key-phrase">This is the precise profile of the ideal client.</span>
+  </p>
+
+  <p>
+    <strong style="color:var(--navy);">ScreenIn3D</strong> (University of Strathclyde, late-seed-to-early-venture) has $2M+ in combined grants and equity, with a lab-on-a-chip platform for drug testing on patient-derived tumor models&mdash;a device-enabled drug development tool at the preclinical device interface.
+  </p>
+
+  <div class="section-header">
+    <h2>Combination products are the growth vector&mdash;three forward indicators signal expanding demand</h2>
+  </div>
+
+  <p>
+    The confirmed combination product count (~12) understates the real opportunity. Drug-device combination clients represent the highest-value engagements in the practice&mdash;larger, more complex, and more capital-intensive than standard device regulatory work, with disproportionate need for above-the-line advisory integrating regulatory pathway clarity with investor-grade financial narrative. <span class="key-phrase">Three institutional pipelines signal materially larger demand within 2&ndash;5 years:</span>
+  </p>
+
+  <h3 class="sub">1. Medicines Manufacturing Innovation Centre (MMIC), Renfrewshire</h3>
+  <p>
+    The MMIC supports lab-to-commercial scale-up for medicines. Biologics and advanced therapies moving through this facility will increasingly encounter drug-device interface questions&mdash;delivery mechanism design, regulatory classification, CMC integration. Companies using this infrastructure are likely combination product candidates. This facility represents both a client pipeline and an institutional relationship worth cultivating.
+  </p>
+
+  <h3 class="sub">2. Glasgow Precision Medicine&mdash;Queen Elizabeth University Hospital</h3>
+  <p>
+    The Clinical Innovation Zone and Precision Medicine Scotland Innovation Centre are conducting population-level pharmacogenomic trials. Therapeutics emerging from pharmacogenomic research frequently require patient-specific delivery mechanisms&mdash;precisely where drug-device combination products are born. This is a forward indicator on a 2&ndash;5 year horizon.
+  </p>
+
+  <h3 class="sub">3. Software-interfacing drug delivery devices (Edinburgh)</h3>
+  <p>
+    The 65% digital/AI orientation of Edinburgh&rsquo;s spinouts is directly relevant. FDA, EMA, and MHRA are all developing frameworks for software-driven combination products. Edinburgh&rsquo;s digital health companies building on drug delivery adjacencies fall into this intersection. <span class="key-phrase">The firm&rsquo;s dual capability in SaMD and combination products positions it uniquely for this emerging segment.</span>
+  </p>
+
+  <div class="note-block">
+    These combination product opportunities are not fully accessible with current capability alone. The recommended sequence: partner with a pharma regulatory firm now (60&ndash;90 days to capability), then build or acquire within 12&ndash;24 months. This is the most executable path given timeline constraints and the rarity of the pharma-side practitioner profile required. A complete analysis of the combination product opportunity, competitive landscape, capability gaps, and build/partner/acquire options is provided in the companion document: <strong style="color:var(--navy);">Combination Device Opportunity</strong>.
+  </div>
+
+  <div class="doc-footer">
+    <span>KSC Advisors &nbsp;&bull;&nbsp; Confidential</span>
+    <span>Edinburgh &nbsp;&bull;&nbsp; Minneapolis</span>
+  </div>
+
+</div>
+</body>
+</html>
