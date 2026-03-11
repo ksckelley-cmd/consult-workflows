@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Automation Engine — KSC Advisors</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366;
+    --accent: #005B99;
+    --light-blue: #D5E8F0;
+    --neutral: #7F7F7F;
+    --white: #ffffff;
+    --border: #D0D8E0;
+    --text: #1A1A1A;
+    --text-light: #555555;
+    --row-alt: #F7FAFC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11pt;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 56px 72px;
+  }
+  .doc-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .doc-header .label {
+    font-size: 8pt; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .doc-header h1 {
+    font-family: 'EB Garamond', serif; font-size: 26pt; font-weight: 600;
+    color: var(--navy); line-height: 1.15; margin-bottom: 6px;
+  }
+  .doc-header .subtitle {
+    font-size: 10pt; color: var(--neutral); font-style: italic;
+  }
+  .governing-thought {
+    background: var(--white); border: 1px solid var(--border);
+    border-left: 4px solid var(--navy); padding: 20px 24px;
+    margin-bottom: 36px; font-size: 10.5pt; color: var(--text);
+    line-height: 1.55; font-style: italic;
+  }
+  .section-header {
+    margin: 40px 0 16px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--navy);
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .section-header h2 {
+    font-family: 'EB Garamond', serif; font-size: 14pt;
+    font-weight: 600; color: var(--navy);
+  }
+  p { margin-bottom: 14px; line-height: 1.55; }
+  .key-phrase { font-weight: 700; color: var(--text); }
+  .exhibit-above {
+    font-size: 8pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--neutral);
+    margin-bottom: 6px; margin-top: 20px;
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    margin-bottom: 6px; font-size: 9.5pt;
+  }
+  thead tr { background: var(--navy); }
+  thead th {
+    color: var(--white); font-weight: 600; font-size: 8.5pt;
+    text-align: left; padding: 10px 12px; letter-spacing: 0.3px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  thead th:last-child { border-right: none; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:nth-child(odd) { background: var(--white); }
+  tbody td {
+    padding: 9px 12px; vertical-align: top;
+    border-bottom: 1px solid var(--border); line-height: 1.45;
+  }
+  td.dim-label { font-weight: 700; color: var(--navy); }
+  .source-line {
+    font-size: 7.5pt; font-style: italic;
+    color: var(--neutral); margin-bottom: 28px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(8, auto);
+    grid-auto-flow: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+  .skills-grid .skill-item {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    font-size: 9.5pt;
+  }
+  .skills-grid .skill-item:nth-child(even) { }
+  .skills-grid .skill-item:nth-child(n+9) { border-right: none; }
+  .skills-grid .skill-item:nth-child(8),
+  .skills-grid .skill-item:nth-child(16) { border-bottom: none; }
+  .skill-num {
+    font-weight: 700; color: var(--navy); margin-right: 8px;
+  }
+  .doc-footer {
+    margin-top: 56px; padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: var(--neutral);
+  }
+  @media print {
+    body { font-size: 9pt; }
+    .page { padding: 24px 32px; max-width: 100%; }
+    .section-header { margin-top: 24px; }
+  }
+  @media (max-width: 768px) {
+    .page { padding: 24px 20px; }
+    table { font-size: 8.5pt; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="label">KSC Advisors</div>
+    <h1>The Automation Engine</h1>
+    <div class="subtitle">Sixteen composable skills that transform raw data into investor-grade outputs in minutes</div>
+  </div>
+
+  <!-- GOVERNING THOUGHT -->
+  <div class="governing-thought">
+    The automation engine eliminates manual production below the leverage line&mdash;not the human judgment above it. By reducing deliverable production from days to minutes, the system frees the Strategic CFO and analysts to focus on pattern recognition, strategic alignment, and advising.
+  </div>
+
+  <!-- SECTION 1: SIXTEEN SKILLS -->
+  <div class="section-header">
+    <h2>Sixteen composable skills handle the workflow from data ingestion through validation and export</h2>
+  </div>
+
+  <table>
+    <tbody>
+      <tr><td class="dim-label">1. Data Extraction</td><td class="dim-label">9. Modeling</td></tr>
+      <tr><td class="dim-label">2. Validation</td><td class="dim-label">10. Forecasting</td></tr>
+      <tr><td class="dim-label">3. Normalization</td><td class="dim-label">11. Reporting</td></tr>
+      <tr><td class="dim-label">4. Mapping</td><td class="dim-label">12. Integration</td></tr>
+      <tr><td class="dim-label">5. Reconciliation</td><td class="dim-label">13. Learning</td></tr>
+      <tr><td class="dim-label">6. Structuring</td><td class="dim-label">14. Testing</td></tr>
+      <tr><td class="dim-label">7. Enrichment</td><td class="dim-label">15. Deployment</td></tr>
+      <tr><td class="dim-label">8. Analytics</td><td class="dim-label">16. Scaling</td></tr>
+    </tbody>
+  </table>
+
+  <p>These skills work together to transform raw data from various sources&mdash;spreadsheets, PDFs, term sheets, and articles of association&mdash;into investor-grade institutional outputs in minutes.</p>
+
+  <!-- EXHIBIT 1: CAPABILITIES -->
+  <div class="section-header">
+    <h2>The engine builds user-defined tools that produce institutional-quality output from the first draft</h2>
+  </div>
+
+  <p class="exhibit-above">Exhibit 1</p>
+  <table>
+    <thead><tr><th style="width:24%;">Capability</th><th style="width:76%;">What it delivers</th></tr></thead>
+    <tbody>
+      <tr><td class="dim-label">Dynamic data transformation</td><td>Skills work together in a modular workflow to ingest raw data from disparate sources and dynamically detect its structure. No manual reformatting.</td></tr>
+      <tr><td class="dim-label">Built-in validation</td><td>Before generating any output, skills cross-communicate to validate inputs&mdash;ensuring financial models, board packages, and investor-facing materials maintain strict integrity with full audit trails.</td></tr>
+      <tr><td class="dim-label">First-draft institutional quality</td><td>By applying a Deloitte-level structured methodology, the automation layer ensures analyst output is investor-grade from the first draft. No rework cycle.</td></tr>
+      <tr><td class="dim-label">Unprecedented speed</td><td>Reduces manual production time for deliverables from days to minutes.</td></tr>
+      <tr><td class="dim-label">Preservation of strategic judgment</td><td>Eliminates manual data aggregation and reporting below the leverage line, freeing the Strategic CFO and analysts for strategic alignment, pattern recognition, and advising. <span class="key-phrase">The automation eliminates the manual production, not the human judgment.</span></td></tr>
+    </tbody>
+  </table>
+  <p class="source-line">Source: KSC Advisors automation architecture</p>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>KSC Advisors &nbsp;&bull;&nbsp; Confidential</span>
+    <span>Edinburgh &nbsp;&bull;&nbsp; Minneapolis</span>
+  </div>
+
+</div>
+</body>
+</html>
