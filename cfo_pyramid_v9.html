@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibit 1: Strategic CFOs create value above the leverage line — KSC Advisors</title>
+<style>
+/*
+  KSC Advisors · CFO Pyramid v9
+  Font: Arial / Franklin Gothic (system fonts — no internet required)
+  Colors: #003366 primary · #005B99 accent · #7F7F7F neutral
+  Standards: McKinsey / KSC Advisors Presentation Standards, March 2026
+*/
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: Arial, 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+  background: #FFFFFF;
+  color: #222222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  border-bottom: 3px solid #003366;
+  padding: 24px 48px 16px;
+  flex-shrink: 0;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.eyebrow {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #005B99;
+  margin-bottom: 8px;
+}
+.doc-header h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #003366;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.doc-subtitle {
+  font-size: 11px;
+  color: #7F7F7F;
+  font-style: italic;
+}
+.header-stats { text-align: right; flex-shrink: 0; }
+.stat-count { font-size: 15px; font-weight: 700; color: #003366; }
+.stat-meta { font-size: 9px; color: #7F7F7F; margin-top: 1px; }
+
+/* ── BODY ── */
+.body-grid { display: flex; flex: 1; min-height: 0; }
+
+/* LEFT: PYRAMID */
+.pyramid-col {
+  width: 50%;
+  flex-shrink: 0;
+  padding: 28px 8px 28px 48px;
+  display: flex;
+  flex-direction: column;
+}
+.pyramid-col svg { width: 100%; height: auto; display: block; }
+
+/* SVG interactivity */
+.plyr { cursor: pointer; }
+.plyr polygon { transition: filter 0.14s ease, opacity 0.14s ease; }
+.plyr:hover polygon { filter: brightness(1.18); }
+.plyr.active polygon {
+  filter: brightness(1.2);
+  stroke: rgba(255,255,255,0.5) !important;
+  stroke-width: 1.5px !important;
+}
+.plyr.dimmed polygon { opacity: 0.30; }
+.lbl-grp { transition: opacity 0.14s ease; }
+.lbl-grp.dimmed { opacity: 0.28; }
+.conn-line { transition: stroke 0.14s ease, opacity 0.14s ease; }
+.conn-line.dimmed { opacity: 0.2; }
+.conn-line.active { stroke: #003366 !important; stroke-dasharray: none !important; opacity: 1; }
+
+/* Annotations */
+.annotations {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #E0E0E0;
+}
+.anno-block { flex: 1; padding-left: 12px; }
+.anno-block.above { border-left: 3px solid #003366; }
+.anno-block.below { border-left: 3px solid #5E7285; }
+.anno-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.anno-block.above .anno-label { color: #003366; }
+.anno-block.below .anno-label { color: #5E7285; }
+.anno-text { font-size: 10px; color: #7F7F7F; line-height: 1.6; }
+
+/* RIGHT: DETAIL */
+.detail-col {
+  flex: 1;
+  border-left: 1px solid #E0E0E0;
+  background: #F4F7FA;
+  padding: 36px 40px 40px 32px;
+  overflow-y: auto;
+}
+
+/* Empty state */
+.empty-state { padding-top: 16px; }
+.empty-instruction {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7F7F7F;
+  margin-bottom: 12px;
+}
+.empty-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #003366;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.empty-state > p {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.72;
+  max-width: none;
+  margin-bottom: 0;
+}
+.placement-note {
+  padding: 14px 16px;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-left: 3px solid #D9D9D9;
+}
+.placement-note .pn-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7F7F7F;
+  margin-bottom: 6px;
+}
+.placement-note p {
+  font-size: 12px;
+  color: #333333;
+  line-height: 1.65;
+}
+
+/* Detail content */
+.zone-badge {
+  display: inline-block;
+  padding: 3px 11px;
+  margin-bottom: 14px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.zone-badge.above { background: #003366; }
+.zone-badge.below { background: #5E7285; }
+.zone-badge.divider { background: #F57C00; }
+
+.detail-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #003366;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.count-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.count-badge { font-size: 13px; font-weight: 700; padding: 2px 12px; }
+.count-badge.above { background: #D6E4F0; color: #003366; }
+.count-badge.below { background: #DDE4EB; color: #5E7285; }
+.count-badge.fdn { background: #F5F5F5; color: #7F7F7F; font-size: 11px; font-style: italic; }
+.count-lbl { font-size: 11px; color: #7F7F7F; }
+
+.detail-desc {
+  font-size: 12px;
+  color: #555555;
+  line-height: 1.72;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.cat-section-hdr {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A6A6A6;
+  margin-bottom: 16px;
+}
+.cat-block {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.cat-block.last { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.cat-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.cat-name { font-size: 11px; font-weight: 700; color: #222222; }
+.cat-cnt {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 8px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+.cat-cnt.above { background: #D6E4F0; color: #005B99; }
+.cat-cnt.below { background: #DDE4EB; color: #5E7285; }
+.d-item {
+  font-size: 11px;
+  color: #7F7F7F;
+  padding: 3px 0 3px 10px;
+  line-height: 1.5;
+  border-left: 2px solid #E0E0E0;
+  margin-bottom: 2px;
+}
+.d-item.above { border-left-color: #D6E4F0; }
+.d-item.below { border-left-color: #DDE4EB; }
+
+.fdn-note {
+  padding: 16px 18px;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-left: 3px solid #DDE4EB;
+  font-size: 11px;
+  color: #7F7F7F;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* FOOTER */
+.doc-footer {
+  border-top: 1px solid #E0E0E0;
+  padding: 10px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8px;
+  font-style: italic;
+  color: #A6A6A6;
+  flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+  .body-grid { flex-direction: column; }
+  .pyramid-col { width: 100%; padding: 24px; }
+  .detail-col { border-left: none; border-top: 1px solid #E0E0E0; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <div class="header-row">
+    <div>
+      <div class="eyebrow">KSC Advisors &middot; Finance Advisory Catalog</div>
+      <h1>A Strategic CFO creates clarity above the leverage line</h1>
+      <div class="doc-subtitle">Click the pyramid to view layers mapped to 132 deliverables</div>
+    </div>
+    <div style="flex-shrink:0; align-self:flex-end;">
+      <button id="resetBtn" onclick="reset()" style="display:none; padding:4px 14px; font-family:Arial,sans-serif; font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#003366; background:#FFFFFF; border:1px solid #003366; cursor:pointer;">&#8635; Reset</button>
+    </div>
+  </div>
+</header>
+
+<div class="body-grid">
+
+  <!-- ═══ LEFT: PYRAMID ═══ -->
+  <div class="pyramid-col">
+    <!--
+      viewBox 0 0 680 460
+      Center x=438 | Labels right-edge x=188
+      hw(y) = 32 + (y-10)*0.472
+      Layer bands: 68px each, leverage divider 16px
+    -->
+    <svg id="psvg" viewBox="15 0 650 460" xmlns="http://www.w3.org/2000/svg">
+
+      <!--
+        PYRAMID GEOMETRY — single slope from apex to base
+        Apex (438,16)  Base-left (203,440)  Base-right (673,440)
+        slope = 235/424 = 0.5542 per y-unit
+        x_left(y)  = 438 - (y-16)*0.5542
+        x_right(y) = 438 + (y-16)*0.5542
+        6 layers × 68px + leverage 16px = 424px total  ✓
+
+        y=16  → x=438 (apex)
+        y=84  → x_l=400  x_r=476
+        y=152 → x_l=363  x_r=513
+        y=220 → x_l=325  x_r=551
+        y=236 → x_l=316  x_r=560
+        y=304 → x_l=278  x_r=598
+        y=372 → x_l=241  x_r=635
+        y=440 → x_l=203  x_r=673
+      -->
+
+      <!-- STRATEGY  y 16→84 -->
+      <g class="plyr" id="pl-strategy" onclick="sel('strategy')" tabindex="0" onkeydown="kd(event,'strategy')">
+        <polygon points="438,16 476,84 400,84" fill="#001529" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- CAPITAL FORMATION  y 84→152 -->
+      <g class="plyr" id="pl-capital" onclick="sel('capital')" tabindex="0" onkeydown="kd(event,'capital')">
+        <polygon points="400,84 476,84 513,152 363,152" fill="#003366" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- GOVERNANCE  y 152→220 -->
+      <g class="plyr" id="pl-governance" onclick="sel('governance')" tabindex="0" onkeydown="kd(event,'governance')">
+        <polygon points="363,152 513,152 551,220 325,220" fill="#005B99" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- LEVERAGE LINE  y 220→236 -->
+      <g class="plyr" id="pl-leverage" onclick="sel('leverage')" tabindex="0" onkeydown="kd(event,'leverage')" style="cursor:pointer;">
+        <polygon points="325,220 551,220 560,236 316,236" fill="#F57C00" stroke="#F57C00" stroke-width="0.5"/>
+        <text x="438" y="231" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" letter-spacing="1.8" fill="#FFFFFF">LEVERAGE LINE</text>
+      </g>
+
+      <!-- RISK MANAGEMENT  y 236→304 -->
+      <g class="plyr" id="pl-risk" onclick="sel('risk')" tabindex="0" onkeydown="kd(event,'risk')">
+        <polygon points="316,236 560,236 598,304 278,304" fill="#2E4057" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- REPORTING & ANALYSIS  y 304→372 -->
+      <g class="plyr" id="pl-reporting" onclick="sel('reporting')" tabindex="0" onkeydown="kd(event,'reporting')">
+        <polygon points="278,304 598,304 635,372 241,372" fill="#5E7285" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- ACCOUNTING & INTERNAL CONTROLS  y 372→440 -->
+      <g class="plyr" id="pl-accounting" onclick="sel('accounting')" tabindex="0" onkeydown="kd(event,'accounting')">
+        <polygon points="241,372 635,372 673,440 203,440" fill="#8A9BB0" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+      </g>
+
+      <!-- CONNECTOR LINES — terminate at left edge x at layer midpoint y -->
+      <!-- Strategy mid y=50:   x_l = 438-(50-16)*0.5542 = 419 -->
+      <!-- Capital mid y=118:   x_l = 438-(118-16)*0.5542 = 382 -->
+      <!-- Governance mid y=186: x_l = 438-(186-16)*0.5542 = 344 -->
+      <!-- Risk mid y=270:      x_l = 438-(270-16)*0.5542 = 297 -->
+      <!-- Reporting mid y=338: x_l = 438-(338-16)*0.5542 = 260 -->
+      <!-- Accounting mid y=406: x_l = 438-(406-16)*0.5542 = 222 -->
+      <line class="conn-line" id="cl-strategy"   x1="188" y1="50"  x2="417" y2="50"  stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+      <line class="conn-line" id="cl-capital"    x1="188" y1="118" x2="380" y2="118" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+      <line class="conn-line" id="cl-governance" x1="188" y1="186" x2="342" y2="186" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+      <line class="conn-line" id="cl-risk"       x1="188" y1="270" x2="295" y2="270" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+      <line class="conn-line" id="cl-reporting"  x1="188" y1="338" x2="258" y2="338" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+      <line class="conn-line" id="cl-accounting" x1="188" y1="406" x2="220" y2="406" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="3,2.5"/>
+
+      <!-- LABELS — right-aligned at x=183, positioned at layer midpoints -->
+
+      <!-- Strategy mid=50 -->
+      <g class="lbl-grp" id="lb-strategy">
+        <text x="183" y="46"  text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">STRATEGY</text>
+        <text x="183" y="59"  text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">45 deliverables</text>
+      </g>
+
+      <!-- Capital mid=118 -->
+      <g class="lbl-grp" id="lb-capital">
+        <text x="183" y="113" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">CAPITAL FORMATION</text>
+        <text x="183" y="128" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">39 deliverables</text>
+      </g>
+
+      <!-- Governance mid=186 -->
+      <g class="lbl-grp" id="lb-governance">
+        <text x="183" y="182" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">GOVERNANCE</text>
+        <text x="183" y="195" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">12 deliverables</text>
+      </g>
+
+      <!-- Risk mid=270 -->
+      <g class="lbl-grp" id="lb-risk">
+        <text x="183" y="265" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">RISK MANAGEMENT</text>
+        <text x="183" y="280" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">10 deliverables</text>
+      </g>
+
+      <!-- Reporting mid=338 -->
+      <g class="lbl-grp" id="lb-reporting">
+        <text x="183" y="333" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">REPORTING &amp; ANALYSIS</text>
+        <text x="183" y="348" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">22 deliverables</text>
+      </g>
+
+      <!-- Accounting mid=406 -->
+      <g class="lbl-grp" id="lb-accounting">
+        <text x="183" y="401" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" fill="#222222">ACCOUNTING &amp; CONTROLS</text>
+        <text x="183" y="416" text-anchor="end" font-family="Arial,sans-serif" font-size="10.5" fill="#7F7F7F">4 deliverables</text>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- ═══ RIGHT: DETAIL ═══ -->
+  <div class="detail-col" id="dCol">
+    <div class="empty-state" id="emptyState">
+      <div class="zone-badge" style="background:#222222;">Select a layer</div>
+      <p>Click any layer — including the Leverage Line — to view its role description and the deliverables mapped to that layer of the CFO's responsibility structure.</p>
+
+      <div style="margin-top:20px; padding-top:20px; border-top:1px solid #E0E0E0;">
+        <div class="placement-note">
+          <div class="pn-label">On deliverable placement</div>
+          <p>Deliverables are tagged to the layer where the CFO <em>applies judgment to their output</em> — where they are consumed, not where the work originates. Many deliverables in Capital Formation and Strategy are built from the data the infrastructure below the leverage line generates. The Financial Infrastructure Sprint is the design specification for building that production layer at an early-stage company.</p>
+        </div>
+      </div>
+    </div>
+    <div id="layerDetail" style="display:none;"></div>
+  </div>
+
+</div>
+
+<footer class="doc-footer">
+  <span>Source: KSC Advisors finance advisory catalog, 132-deliverable inventory; KSC/Avio analysis</span>
+  <span>KSC Advisors &middot; March 2026</span>
+</footer>
+
+<script>
+var D = {
+  strategy: {
+    title:'Strategy', zone:'above', count:45,
+    desc:'The CFO ensures all capital and resources directionally support the strategic plan, evaluates current-state strategy against the approved plan written months ago, and monitors capital misalignment in real time. This layer is pure judgment — it cannot be delegated or templated. Deliverables here are the analytical instruments of strategic decision-making: market intelligence, pricing architecture, commercial models, and competitive positioning.',
+    cats:[
+      {n:'Market Sizing & Opportunity',c:7,i:['Procedure Volume Forecast by Geography','Patient Funnel / Diagnosis-to-Treatment Model','Market Penetration S-Curve Model','Competitive Market Share Waterfall','Adjacent Market Expansion Sizing','Site-of-Service Mix Model','Addressable Account Universe & Tiering']},
+      {n:'Pricing & Reimbursement',c:7,i:['CPT/HCPCS Code Mapping & Reimbursement Schedule','ASP Waterfall Analysis by Payer Channel','Hospital Economic Value Analysis (EVA)','Payer Mix Revenue Model','Capital vs. Disposable Pricing Architecture','Medicare Coverage Analysis (LCD/NCD Pathway)','DRG / APC / ASC Payment Rate Analysis']},
+      {n:'COGS & Manufacturing Economics',c:6,i:['Unit COGS Build-Up (BOM + Labor + Overhead)','COGS Volume Curve / Learning Rate Model','Gross Margin Bridge (Prototype \u2192 Scale)','Make vs. Buy / Contract Manufacturing Decision','Manufacturing CapEx & Facility Build-Out Budget','Yield & Scrap Rate Financial Impact Model']},
+      {n:'Sales Force & Distribution',c:6,i:['Sales Force Sizing & Deployment Model','Sales Rep Ramp & Productivity Curve','Direct vs. Distributor vs. Hybrid Channel Economics','Customer Acquisition Cost (CAC) by Channel','Sales Compensation & Quota Model','Go-to-Market Planning Model']},
+      {n:'Health Economics & Value',c:5,i:['Budget Impact Model (BIM) for Hospital/IDN','Cost-Effectiveness Analysis vs. Standard of Care','Episode-of-Care Cost Comparison','Value Dossier / AMCP-Format Value Framework','OR Time / Procedure Efficiency Savings Model']},
+      {n:'Competitive Intelligence',c:3,i:['Competitive Pricing Benchmarking Matrix','Competitive Landscape Analysis','Switching Cost Quantification']},
+      {n:'Market Entry & Launch Planning',c:5,i:['Geographic Launch Sequence','Regulatory Pathway Cost Comparison','Commercial Launch Budget (24-Month Phased)','Limited Market Release (LMR) Financial Plan','KOL Engagement Budget & ROI Model']},
+      {n:'Strategic Planning',c:6,i:['Scenario & Sensitivity Analysis','Bottom-Up TAM / SAM / SOM Analysis','Board-Level Strategic Finance Deck','Long-Range Strategic Plan (3\u20135 Year)','M&A Target Financial Screening','Exit / Liquidity Scenario Model']}
+    ]
+  },
+  capital: {
+    title:'Capital Formation', zone:'above', count:39,
+    desc:'The CFO prepares the company to raise capital, designs the capital strategy, aligns the equity model with product development and compensation plans, and leads M&A execution. Deliverables tagged here are the instruments of fundraising. They are built from the data the infrastructure below the leverage line generates — and the CFO interprets and positions them in the capital markets context.',
+    cats:[
+      {n:'Financial Models & Projections',c:8,i:['Three-Statement Integrated Financial Model','Monthly P&L Forecast with Departmental Cost Centers','Revenue Build-Up Model','Milestone-Based Use of Proceeds Schedule','Runway Sensitivity Matrix','R&D Burn Rate Build-Up','Break-Even Analysis','Clinical Trial Budget Model']},
+      {n:'Market Sizing & Valuation',c:4,i:['Valuation Benchmarking (Comparable Transactions)','Pre-Money Valuation Justification Memo','Acquisition Comparable Analysis','Investor Return Analysis (IRR / MOIC)']},
+      {n:'Cap Table & Equity Modeling',c:15,i:['Fully-Diluted Cap Table','Pro Forma Cap Table (Next Round)','SAFE / Convertible Note Conversion Waterfall','Option Pool Sufficiency Analysis','Exit Waterfall / Liquidation Analysis','Founder Dilution Roadmap','409A Valuation Support','Option Grant & Vesting Tracker','Warrant Register & Exercise Schedule','Equity Allocation Framework','Term Sheet Comparison Matrix','Liquidation Preference Scenario Analysis','Anti-Dilution Impact Model','Option Pool Shuffle Analysis','Pay-to-Play Scenario Model']},
+      {n:'Investor Communications & Data Room',c:4,i:['Pitch Deck Financial Pages','Fundraising Pipeline / CRM Tracker','Organized Virtual Data Room','Investor Data Room Checklists']},
+      {n:'Grant & Non-Dilutive Funding',c:3,i:['Non-Dilutive Funding Pipeline Tracker','Grant Budget & Compliance Package','Blended Funding Strategy Model']},
+      {n:'Equity Administration',c:3,i:['Stock Compensation Expense Forecast (ASC 718)','Option Pool Utilization Report','Cap Table Reconciliation Report']},
+      {n:'Capital Structure',c:2,i:['Venture Debt Structuring Model','Cap Table Management Platform Selection']}
+    ]
+  },
+  governance: {
+    title:'Governance', zone:'above', count:12,
+    desc:'The CFO leads strategic planning alongside the CEO and board, assesses entity structure against capital needs, manages board preparation and fiduciary compliance, and oversees investor relations and reporting. Governance deliverables are the formal instruments of board and investor communication.',
+    cats:[
+      {n:'Investor Communications',c:2,i:['Monthly Investor Update Template','Corporate Documents Binder']},
+      {n:'Board Materials & Reporting',c:4,i:['Quarterly Board Financial Reporting Package','Board Meeting Agenda & Minutes Template','Board Skills Matrix & Composition Analysis','Annual Investor Letter']},
+      {n:'Corporate Governance & Compliance',c:5,i:['Corporate Governance Tracker','Entity Structure Review & Optimization','Delegation of Authority Matrix','Investor Rights & Protective Provisions Summary','QSBS Eligibility Tracking']},
+      {n:'Equity Administration',c:1,i:['Employee Equity Education Materials']}
+    ]
+  },
+  leverage: {
+    title:'The Leverage Line', zone:'divider', count:0,
+    desc:'The leverage line is the threshold between two fundamentally different types of work. Above it, the CFO applies judgment — pattern recognition, strategic alignment, and capital decisions that cannot be delegated or templated. Below it, the finance and accounting team executes infrastructure that is standardizable, repeatable, and technology-enabled. The leverage line is not a hierarchy — it is a design principle. A Strategic CFO uses the outputs of the layers below as sensors: signals that inform judgment above. When the infrastructure below the line is weak, the signals are unreliable and the judgment above it is compromised. When the infrastructure is strong, the CFO can focus entirely on the work that creates strategic value.',
+    cats:[]
+  },
+  risk: {
+    title:'Risk Management', zone:'below', count:10,
+    desc:'Risk Management identifies where risk is accumulating across insurance, vendor contracts, treasury relationships, regulatory compliance, and legal housekeeping. The CFO reviews the signals. The Controller\'s scope typically extends to this layer for execution and administration at early-stage companies.',
+    cats:[
+      {n:'Insurance & D&O',c:1,i:['D&O Insurance Needs Assessment']},
+      {n:'Equity & Ownership Compliance',c:1,i:['Section 382 Ownership Change Monitoring']},
+      {n:'Supply Chain',c:1,i:['Supply Chain & Inventory Model']},
+      {n:'Material Contracts',c:1,i:['Material Contracts Schedule']},
+      {n:'Tax, IP & Compliance',c:6,i:['R&D Tax Credit Study & Documentation','Section 174 R&D Amortization Impact Analysis','NOL Carryforward Tracking & 382 Analysis','Patent Portfolio Cost Tracker','IP Jurisdictional Coverage Cost-Benefit','Transfer Pricing / Intercompany Documentation']}
+    ]
+  },
+  reporting: {
+    title:'Reporting & Analysis', zone:'below', count:22,
+    desc:'Reporting & Analysis produces the board package, manages cash flow and forecasting, drives budgeting and financial planning, and maintains the data room. The Controller ensures accuracy; the Senior Analyst evaluates trends and variances. The CFO reviews and interprets — not executes.',
+    cats:[
+      {n:'Financial Statements',c:1,i:['Financial Statements Package (Data Room)']},
+      {n:'Budgeting & Cash Management',c:7,i:['Annual Budget & Reforecast','13-Week Rolling Cash Flow Forecast','Cash Runway Dashboard','Rolling 18-Month Forecast','Budget vs. Actual Variance Report','Burn Rate Optimization Analysis','Working Capital & Cash Management Model']},
+      {n:'Headcount & Compensation',c:5,i:['Departmental Headcount Budget (Fully-Loaded)','Hiring Plan Sequencing Model','Compensation Benchmarking Study','Contractor vs. FTE Cost-Benefit Analysis','Organizational Design & Span-of-Control']},
+      {n:'Financial Reporting & Dashboards',c:6,i:['Monthly Business Review (MBR) Package','KPI & Unit Economics Dashboard','R&D Spend by Project/Program Report','Flash Report (Weekly Executive Summary)','Bridge Analysis (Revenue, Expense, Cash)','Investor KPI Scorecard']},
+      {n:'Grant Reporting',c:1,i:['Grant Financial Reporting & Drawdown']},
+      {n:'Strategic Reporting',c:2,i:['Quality of Earnings (QoE) Readiness','Multi-Entity Consolidated Reporting']}
+    ]
+  },
+  accounting: {
+    title:'Accounting & Controls', zone:'below', count:4,
+    desc:'The foundation of the pyramid. Accounting operations, revenue recognition, audit management, internal controls, ERP implementation, tax compliance, and payroll are owned and executed by the finance team. Clean, timely data from this layer enables reliable reporting, visible risk, and sound governance above it. Financial architecture decisions \u2014 platform selection, chart of accounts design, systems integration \u2014 are made here at setup. Everything above depends on them. The <strong>Financial Infrastructure Sprint</strong> is the design specification for building this entire layer at an early-stage company.',
+    cats:[
+      {n:'Financial Architecture & Systems',c:4,i:['Chart of Accounts Design (Life Science)','R&D vs. SG&A Classification Policy','Accounting System Selection & Migration','Financial Systems Integration Architecture']}
+    ]
+  }
+};
+
+var active = null;
+var IDS = ['strategy','capital','governance','leverage','risk','reporting','accounting'];
+
+function kd(e,id){ if(e.key==='Enter'||e.key===' ')sel(id); }
+
+function sel(id){
+  if(active===id){ active=null; reset(); return; }
+  active=id;
+  document.getElementById('resetBtn').style.display='block';
+  IDS.forEach(function(lid){
+    var pg=document.getElementById('pl-'+lid);
+    var lb=document.getElementById('lb-'+lid);
+    var cl=document.getElementById('cl-'+lid);
+    if(lid===id){
+      pg.classList.remove('dimmed'); pg.classList.add('active');
+      if(lb){lb.classList.remove('dimmed');}
+      if(cl){cl.classList.remove('dimmed'); cl.classList.add('active');}
+    } else {
+      pg.classList.remove('active'); pg.classList.add('dimmed');
+      if(lb){lb.classList.add('dimmed');}
+      if(cl){cl.classList.remove('active'); cl.classList.add('dimmed');}
+    }
+  });
+  var L=D[id];
+  document.getElementById('emptyState').style.display='none';
+  var det=document.getElementById('layerDetail');
+  det.style.display='block';
+  det.innerHTML=render(L);
+  document.getElementById('dCol').scrollTop=0;
+}
+
+function reset(){
+  IDS.forEach(function(lid){
+    var pg=document.getElementById('pl-'+lid);
+    var lb=document.getElementById('lb-'+lid);
+    var cl=document.getElementById('cl-'+lid);
+    pg.classList.remove('dimmed','active');
+    if(lb)lb.classList.remove('dimmed');
+    if(cl){cl.classList.remove('dimmed','active');}
+  });
+  document.getElementById('resetBtn').style.display='none';
+  document.getElementById('emptyState').style.display='block';
+  document.getElementById('layerDetail').style.display='none';
+}
+
+function render(L){
+  var ab=L.zone==='above';
+  var isDivider=L.zone==='divider';
+  var zc=isDivider?'divider':ab?'above':'below';
+  var zl=isDivider?'The Leverage Line':ab?'Above the Leverage Line':'Below the Leverage Line';
+  var h='';
+  h+='<div class="zone-badge '+zc+'">'+zl+'</div>';
+  h+='<div class="detail-title">'+L.title+'</div>';
+  if(L.count>0){
+    h+='<div class="count-row"><span class="count-badge '+zc+'">'+L.count+'</span><span class="count-lbl">deliverables in this layer</span></div>';
+  }
+  h+='<div class="detail-desc">'+L.desc+'</div>';
+  if(L.cats.length===0){
+    h+='<div class="fdn-note">The foundation of the pyramid produces no tagged deliverables \u2014 it produces the clean data all layers above it consume. The <strong>Financial Infrastructure Sprint</strong> is the design specification for standing up this layer at an early-stage company: platform selection, chart of accounts, automation stack, close process, compliance calendar, and team design \u2014 built layer by layer.</div>';
+  } else {
+    h+='<div class="cat-section-hdr">Deliverables by category</div>';
+    L.cats.forEach(function(cat,i){
+      var last=i===L.cats.length-1;
+      h+='<div class="cat-block'+(last?' last':'')+'"><div class="cat-hdr"><span class="cat-name">'+cat.n+'</span><span class="cat-cnt '+zc+'">'+cat.c+'</span></div>';
+      cat.i.forEach(function(item){
+        h+='<div class="d-item '+zc+'">'+item+'</div>';
+      });
+      h+='</div>';
+    });
+  }
+  return h;
+}
+</script>
+</body>
+</html>
